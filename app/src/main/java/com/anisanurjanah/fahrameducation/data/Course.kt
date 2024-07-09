@@ -1,5 +1,9 @@
 package com.anisanurjanah.fahrameducation.data
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Course(
 	val id: Int? = null,
 	val teacherId: Int? = null,
@@ -8,9 +12,8 @@ data class Course(
 	val level: String? = null,
 	val infoLevel: String? = null,
 	val featuredImage: String? = null,
-	val description: String? = null,
 	val excerpt: String? = null,
 	val publishedAt: String? = null,
 	val slug: String? = null,
 	val view: Int? = null
-)
+) : Parcelable

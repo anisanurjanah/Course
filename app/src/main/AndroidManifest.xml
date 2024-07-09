@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FahramEducation"
         tools:targetApi="31">
-
+        <activity
+            android:name=".view.course.CourseDetailActivity"
+            android:exported="false" />
         <activity
             android:name=".view.splashscreen.SplashScreenActivity"
             android:exported="true">
@@ -22,7 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".view.login.LoginActivity"
             android:exported="false" />

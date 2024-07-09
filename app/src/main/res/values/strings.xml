@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Fahram Education</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="save">Continue</string>
+    <string name="logo">https://fahram.dev/img/logo.webp</string>
+    <string name="course">Course</string>
+    <string name="path">Path</string>
+    <string name="slug">Slug</string>
+    <string name="view">View</string>
+    <string name="level">Level</string>
+    <string name="module">Module</string>
+    <string name="teacher">Teacher</string>
+    <string name="my_task">My Task</string>
+    <string name="logout">Logout</string>
 </resources>
