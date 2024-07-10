@@ -29,6 +29,7 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupAction()
+        setupToolbar()
         getUserProfile()
     }
 
@@ -47,6 +48,17 @@ class ProfileActivity : AppCompatActivity() {
             editor.apply()
             startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
             finish()
+        }
+    }
+
+    private fun setupToolbar() {
+        with(binding) {
+            setSupportActionBar(topAppBar)
+            topAppBar.title = getString(R.string.my_profile)
+            topAppBar.setNavigationIcon(R.drawable.ic_arrow_back)
+            topAppBar.setNavigationOnClickListener {
+                onBackPressedDispatcher.onBackPressed()
+            }
         }
     }
 

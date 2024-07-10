@@ -15,4 +15,8 @@
     <string name="logout">Logout</string>
     <string name="fahram_courses">Fahram Courses</string>
     <string name="login">Login</string>
+    <string name="input_task">Input Task</string>
+    <string name="see_all_courses">See All Courses</string>
+    <string name="my_course">My Course</string>
+    <string name="my_profile">My Profile</string>
 </resources>

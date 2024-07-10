@@ -3,8 +3,10 @@ package com.anisanurjanah.fahrameducation.view.course
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
+import com.anisanurjanah.fahrameducation.R
 import com.anisanurjanah.fahrameducation.data.Course
 import com.anisanurjanah.fahrameducation.databinding.ActivityCourseDetailBinding
+import com.anisanurjanah.fahrameducation.view.course.usercourse.UserCourseDetailActivity
 
 class CourseDetailActivity : AppCompatActivity() {
 
@@ -16,9 +18,21 @@ class CourseDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         @Suppress("DEPRECATION")
-        val course = intent.getParcelableExtra<Course>(EXTRA_COURSE)
+        val course = intent.getParcelableExtra<Course>(UserCourseDetailActivity.EXTRA_COURSE)
         course?.let {
+            setupToolbar(it.title)
             setupCourseDetail(it)
+        }
+    }
+
+    private fun setupToolbar(title: String) {
+        with(binding) {
+            setSupportActionBar(topAppBar)
+            topAppBar.title = title
+            topAppBar.setNavigationIcon(R.drawable.ic_arrow_back)
+            topAppBar.setNavigationOnClickListener {
+                onBackPressedDispatcher.onBackPressed()
+            }
         }
     }
 

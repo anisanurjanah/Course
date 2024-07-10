@@ -30,26 +30,54 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressIndicator"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:indeterminateTint="?attr/colorPrimary"
+            android:indeterminate="true"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:indicatorColor="?attr/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/appBarLayout"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvCourse"
+            android:id="@+id/rvTask"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_margin="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/progressIndicator" />
+
+        <EditText
+            android:id="@+id/edInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:ems="10"
+            android:hint="@string/input_task"
+            android:inputType="text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btSave"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvTask"
+            tools:ignore="Autofill" />
+
+        <ImageButton
+            android:id="@+id/btSave"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/colorPrimary"
+            android:src="@drawable/ic_add_box"
+            app:layout_constraintBottom_toBottomOf="@+id/edInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/edInput"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -3,8 +3,10 @@ package com.anisanurjanah.fahrameducation.view.course.usercourse
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
+import com.anisanurjanah.fahrameducation.R
 import com.anisanurjanah.fahrameducation.data.Course
 import com.anisanurjanah.fahrameducation.databinding.ActivityUserCourseDetailBinding
+import com.anisanurjanah.fahrameducation.utils.withDateFormat
 
 class UserCourseDetailActivity : AppCompatActivity() {
 
@@ -18,7 +20,19 @@ class UserCourseDetailActivity : AppCompatActivity() {
         @Suppress("DEPRECATION")
         val course = intent.getParcelableExtra<Course>(EXTRA_COURSE)
         course?.let {
+            setupToolbar(it.title)
             setupCourseDetail(it)
+        }
+    }
+
+    private fun setupToolbar(title: String) {
+        with(binding) {
+            setSupportActionBar(topAppBar)
+            topAppBar.title = title
+            topAppBar.setNavigationIcon(R.drawable.ic_arrow_back)
+            topAppBar.setNavigationOnClickListener {
+                onBackPressedDispatcher.onBackPressed()
+            }
         }
     }
 
@@ -30,7 +44,7 @@ class UserCourseDetailActivity : AppCompatActivity() {
             courseSlug.text = course.slug
             courseLevel.text = course.level
             courseView.text = course.view.toString()
-            publishedAt.text = course.publishedAt
+            publishedAt.text = course.publishedAt.withDateFormat()
         }
     }
 

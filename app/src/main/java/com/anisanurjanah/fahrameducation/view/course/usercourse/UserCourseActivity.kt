@@ -6,9 +6,11 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.anisanurjanah.fahrameducation.R
 import com.anisanurjanah.fahrameducation.adapter.CourseAdapter
 import com.anisanurjanah.fahrameducation.data.Course
 import com.anisanurjanah.fahrameducation.databinding.ActivityUserCourseBinding
+import com.anisanurjanah.fahrameducation.view.course.CourseActivity
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import cz.msebera.android.httpclient.Header
@@ -23,7 +25,26 @@ class UserCourseActivity : AppCompatActivity() {
         binding = ActivityUserCourseBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupToolbar()
+        setupAction()
         getUserCourse()
+    }
+
+    private fun setupAction() {
+        binding.coursesButton.setOnClickListener {
+            startActivity(Intent(this@UserCourseActivity, CourseActivity::class.java))
+        }
+    }
+
+    private fun setupToolbar() {
+        with(binding) {
+            setSupportActionBar(topAppBar)
+            topAppBar.title = getString(R.string.my_course)
+            topAppBar.setNavigationIcon(R.drawable.ic_arrow_back)
+            topAppBar.setNavigationOnClickListener {
+                onBackPressedDispatcher.onBackPressed()
+            }
+        }
     }
 
     private fun getUserCourse() {
