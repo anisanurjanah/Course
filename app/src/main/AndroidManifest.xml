@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FahramEducation"
         tools:targetApi="31">
-
         <activity
             android:name=".view.splashscreen.SplashScreenActivity"
             android:exported="true">
@@ -22,9 +21,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".view.onboarding.OnboardingActivity"
+            android:exported="false" />
         <activity
             android:name=".view.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.article.articleUser.ArticleUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.article.ArticleDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.course.CourseDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.course.CourseActivity"
             android:exported="false" />
         <activity
             android:name=".view.article.ArticleActivity"
@@ -33,7 +46,10 @@
             android:name=".view.task.TaskActivity"
             android:exported="false" />
         <activity
-            android:name=".view.course.CourseActivity"
+            android:name=".view.course.usercourse.UserCourseDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.course.usercourse.UserCourseActivity"
             android:exported="false" />
         <activity
             android:name=".view.profile.ProfileActivity"

@@ -1,4 +1,4 @@
-package com.anisanurjanah.fahrameducation.view.course
+package com.anisanurjanah.fahrameducation.view.article.articleUser
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,31 +7,31 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.anisanurjanah.fahrameducation.R
-import com.anisanurjanah.fahrameducation.adapter.CourseAdapter
-import com.anisanurjanah.fahrameducation.data.Course
-import com.anisanurjanah.fahrameducation.databinding.ActivityCourseBinding
+import com.anisanurjanah.fahrameducation.adapter.ArticleAdapter
+import com.anisanurjanah.fahrameducation.data.Article
+import com.anisanurjanah.fahrameducation.databinding.ActivityArticleUserBinding
+import com.anisanurjanah.fahrameducation.view.article.ArticleDetailActivity
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
-import cz.msebera.android.httpclient.Header
 import org.json.JSONObject
 
-class CourseActivity : AppCompatActivity() {
+class ArticleUserActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityCourseBinding
+    private lateinit var binding: ActivityArticleUserBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCourseBinding.inflate(layoutInflater)
+        binding = ActivityArticleUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupToolbar()
-        getAllCourses()
+        getAllArticles()
     }
 
     private fun setupToolbar() {
         with(binding) {
             setSupportActionBar(topAppBar)
-            topAppBar.title = getString(R.string.fahram_courses)
+            topAppBar.title = getString(R.string.articles)
             topAppBar.setNavigationIcon(R.drawable.ic_arrow_back)
             topAppBar.setNavigationOnClickListener {
                 onBackPressedDispatcher.onBackPressed()
@@ -39,17 +39,22 @@ class CourseActivity : AppCompatActivity() {
         }
     }
 
-    private fun getAllCourses() {
+    private fun getAllArticles() {
         binding.progressIndicator.visibility = View.VISIBLE
 
-        val client = AsyncHttpClient()
+        val sharedPref = getSharedPreferences("UNIVAL", MODE_PRIVATE)
+        val token = sharedPref.getString("TOKEN", "")
 
-        val url = "https://fahram.dev/api/v2/courses"
+        val client = AsyncHttpClient().apply {
+            addHeader("Authorization", "Bearer $token")
+        }
+
+        val url = "https://fahram.dev/api/posts"
 
         client.get(url, object : AsyncHttpResponseHandler() {
             override fun onSuccess(
                 statusCode: Int,
-                headers: Array<out Header>?,
+                headers: Array<out cz.msebera.android.httpclient.Header>?,
                 responseBody: ByteArray
             ) {
                 binding.progressIndicator.visibility = View.GONE
@@ -58,45 +63,42 @@ class CourseActivity : AppCompatActivity() {
                 try {
                     val responseObj = JSONObject(response)
                     val dataArray = responseObj.getJSONArray("data")
-                    val data = ArrayList<Course>()
+                    val data = ArrayList<Article>()
 
                     for (i in 0 until dataArray.length()) {
                         val dataObj = dataArray.getJSONObject(i)
 
                         val title = dataObj.getString("title")
                         val image = dataObj.getString("image")
-                        val path = dataObj.getString("path")
                         val excerpt = dataObj.getString("excerpt")
                         val slug = dataObj.getString("slug")
-                        val teacher = dataObj.getString("teacher")
-                        val teacherImage = dataObj.getString("teacherimage")
-                        val level = dataObj.getString("level")
+                        val author = dataObj.getString("author")
+                        val authorImage = dataObj.getString("authorimage")
+                        val category = dataObj.getString("category")
                         val view = dataObj.getInt("view")
-                        val module = dataObj.getInt("module")
                         val publishedAt = dataObj.getString("published_at")
 
-                        val course = Course(title, image, path,
-                            excerpt, slug, teacher, teacherImage,
-                            level, view, module, publishedAt)
-                        data.add(course)
+                        val article = Article(title, image, excerpt, slug,
+                            author, authorImage, category, view, publishedAt)
+                        data.add(article)
                     }
 
-                    val adapter = CourseAdapter(data) { course ->
+                    val adapter = ArticleAdapter(data) { article ->
                         startActivity(
-                            Intent(this@CourseActivity, CourseDetailActivity::class.java
-                            ).putExtra(CourseDetailActivity.EXTRA_COURSE, course))
+                            Intent(this@ArticleUserActivity, ArticleDetailActivity::class.java
+                            ).putExtra(ArticleDetailActivity.EXTRA_ARTICLE, article))
                     }
-                    binding.rvCourse.layoutManager = LinearLayoutManager(this@CourseActivity)
-                    binding.rvCourse.adapter = adapter
+                    binding.rvArticle.layoutManager = LinearLayoutManager(this@ArticleUserActivity)
+                    binding.rvArticle.adapter = adapter
                 } catch (e: Exception) {
-                    Toast.makeText(this@CourseActivity, e.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ArticleUserActivity, e.message, Toast.LENGTH_SHORT).show()
                     e.printStackTrace()
                 }
             }
 
             override fun onFailure(
                 statusCode: Int,
-                headers: Array<out Header>?,
+                headers: Array<out cz.msebera.android.httpclient.Header>?,
                 responseBody: ByteArray?,
                 error: Throwable
             ) {
@@ -108,7 +110,7 @@ class CourseActivity : AppCompatActivity() {
                     404 -> "$statusCode : Not Found"
                     else -> "$statusCode : ${error.message}"
                 }
-                Toast.makeText(this@CourseActivity, errorMessage, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ArticleUserActivity, errorMessage, Toast.LENGTH_SHORT).show()
             }
         })
     }
