@@ -6,6 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
     tools:context=".view.profile.ProfileActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,63 +43,418 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
+        <View
+            android:id="@+id/view_1"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:background="?attr/colorPrimaryVariant"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivUser"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginTop="160dp"
+            app:civ_border_width="4dp"
+            app:civ_border_color="?attr/colorPrimaryVariant"
+            app:layout_constraintBottom_toBottomOf="@+id/view_1"
+            app:layout_constraintEnd_toEndOf="@+id/view_1"
+            app:layout_constraintStart_toStartOf="@+id/view_1"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+            tools:ignore="ContentDescription"
+            tools:src="@tools:sample/avatars" />
+
         <TextView
             android:id="@+id/userName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/course"
-            android:textColor="@color/black"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/name"
+            android:textAlignment="center"
+            android:textColor="?attr/colorOnPrimary"
             android:textSize="32sp"
             android:textStyle="bold"
-            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivUser" />
 
-        <ImageView
-            android:id="@+id/ivUser"
+        <TextView
+            android:id="@+id/userRole"
             android:layout_width="0dp"
-            android:layout_height="256dp"
-            android:scaleType="fitCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-            tools:ignore="ContentDescription"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <Button
-            android:id="@+id/courseButton"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="32dp"
-            android:text="@string/my_course"
-            android:textColor="?attr/colorSecondaryVariant"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="32dp"
+            android:text="@string/role"
+            android:textAlignment="center"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userName" />
 
-        <Button
+        <View
+            android:id="@+id/view_2"
+            android:layout_width="0dp"
+            android:layout_height="128dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userRole" />
+
+        <ImageButton
+            android:id="@+id/courseButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginBottom="32dp"
+            android:background="@color/transparent"
+            android:padding="16dp"
+            android:src="@drawable/ic_menu_book"
+            app:layout_constraintBottom_toBottomOf="@+id/view_2"
+            app:layout_constraintStart_toStartOf="@+id/view_2"
+            app:layout_constraintTop_toTopOf="@+id/view_2"
+            app:tint="?attr/colorPrimary"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <ImageButton
             android:id="@+id/taskButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/my_task"
-            android:textColor="?attr/colorSecondaryVariant"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@color/transparent"
+            android:padding="16dp"
+            android:src="@drawable/ic_format_list_bulleted"
             app:layout_constraintBottom_toBottomOf="@+id/courseButton"
-            app:layout_constraintEnd_toStartOf="@+id/logoutButton"
+            app:layout_constraintEnd_toStartOf="@+id/articleButton"
             app:layout_constraintStart_toEndOf="@+id/courseButton"
-            app:layout_constraintTop_toTopOf="@+id/courseButton" />
+            app:layout_constraintTop_toTopOf="@+id/courseButton"
+            app:tint="?attr/colorPrimary"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <ImageButton
+            android:id="@+id/articleButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginEnd="48dp"
+            android:background="@color/transparent"
+            android:padding="16dp"
+            android:src="@drawable/ic_article"
+            app:layout_constraintBottom_toBottomOf="@+id/taskButton"
+            app:layout_constraintEnd_toEndOf="@+id/view_2"
+            app:layout_constraintTop_toTopOf="@+id/taskButton"
+            app:tint="?attr/colorPrimary"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/tvTask"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/task"
+            android:textAlignment="center"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/taskButton"
+            app:layout_constraintStart_toStartOf="@+id/taskButton"
+            app:layout_constraintTop_toBottomOf="@+id/taskButton" />
+
+        <TextView
+            android:id="@+id/tvCourse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/course"
+            android:textAlignment="center"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/courseButton"
+            app:layout_constraintStart_toStartOf="@+id/courseButton"
+            app:layout_constraintTop_toBottomOf="@+id/courseButton" />
+
+        <TextView
+            android:id="@+id/tvArticle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/article"
+            android:textAlignment="center"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/articleButton"
+            app:layout_constraintStart_toStartOf="@+id/articleButton"
+            app:layout_constraintTop_toBottomOf="@+id/articleButton" />
+
+        <View
+            android:id="@+id/view_3"
+            android:layout_width="0dp"
+            android:layout_height="270dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/rounded_white_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_2"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvContact"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/contact_details"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/view_3"
+            app:layout_constraintStart_toStartOf="@+id/view_3"
+            app:layout_constraintTop_toTopOf="@+id/view_3" />
+
+        <View
+            android:id="@+id/divider_1"
+            android:layout_width="0dp"
+            android:layout_height="0.8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/colorPrimary"
+            app:layout_constraintEnd_toEndOf="@+id/view_3"
+            app:layout_constraintStart_toStartOf="@+id/view_3"
+            app:layout_constraintTop_toBottomOf="@+id/tvContact" />
+
+        <TextView
+            android:id="@+id/tvNim"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/nim"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/view_3"
+            app:layout_constraintTop_toBottomOf="@+id/divider_1" />
+
+        <TextView
+            android:id="@+id/userNim"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/nim"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvNim"
+            app:layout_constraintEnd_toEndOf="@+id/view_3"
+            app:layout_constraintStart_toEndOf="@+id/tvNim"
+            app:layout_constraintTop_toTopOf="@+id/tvNim" />
+
+        <View
+            android:id="@+id/divider_2"
+            android:layout_width="0dp"
+            android:layout_height="0.8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/colorPrimary"
+            app:layout_constraintEnd_toEndOf="@+id/view_3"
+            app:layout_constraintStart_toStartOf="@+id/view_3"
+            app:layout_constraintTop_toBottomOf="@+id/tvNim" />
+
+        <TextView
+            android:id="@+id/tvClass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/clas"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/view_3"
+            app:layout_constraintTop_toBottomOf="@+id/divider_2" />
+
+        <TextView
+            android:id="@+id/userClass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/clas"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvClass"
+            app:layout_constraintEnd_toEndOf="@+id/userNim"
+            app:layout_constraintStart_toStartOf="@+id/userNim"
+            app:layout_constraintTop_toTopOf="@+id/tvClass" />
+
+        <View
+            android:id="@+id/divider_3"
+            android:layout_width="0dp"
+            android:layout_height="0.8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/colorPrimary"
+            app:layout_constraintEnd_toEndOf="@+id/view_3"
+            app:layout_constraintStart_toStartOf="@+id/view_3"
+            app:layout_constraintTop_toBottomOf="@+id/tvClass" />
+
+        <TextView
+            android:id="@+id/tvCampus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/campus"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/view_3"
+            app:layout_constraintTop_toBottomOf="@+id/divider_3" />
+
+        <TextView
+            android:id="@+id/userCampus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/campus"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCampus"
+            app:layout_constraintEnd_toEndOf="@+id/userClass"
+            app:layout_constraintStart_toStartOf="@+id/userNim"
+            app:layout_constraintTop_toTopOf="@+id/tvCampus" />
+
+        <View
+            android:id="@+id/divider_4"
+            android:layout_width="0dp"
+            android:layout_height="0.8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/view_3"
+            app:layout_constraintTop_toBottomOf="@+id/tvCampus" />
+
+        <TextView
+            android:id="@+id/tvPhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/phone"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/view_3"
+            app:layout_constraintTop_toBottomOf="@+id/divider_4" />
+
+        <TextView
+            android:id="@+id/userPhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/phone"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPhone"
+            app:layout_constraintEnd_toEndOf="@+id/userCampus"
+            app:layout_constraintStart_toStartOf="@+id/userCampus"
+            app:layout_constraintTop_toTopOf="@+id/tvPhone" />
+
+        <View
+            android:id="@+id/divider_5"
+            android:layout_width="0dp"
+            android:layout_height="0.8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/colorPrimary"
+            app:layout_constraintEnd_toEndOf="@+id/view_3"
+            app:layout_constraintStart_toStartOf="@+id/view_3"
+            app:layout_constraintTop_toBottomOf="@+id/tvPhone" />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/email"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/view_3"
+            app:layout_constraintTop_toBottomOf="@+id/divider_5" />
+
+        <TextView
+            android:id="@+id/userEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvEmail"
+            app:layout_constraintEnd_toEndOf="@+id/userPhone"
+            app:layout_constraintStart_toStartOf="@+id/userPhone"
+            app:layout_constraintTop_toTopOf="@+id/tvEmail" />
+
+        <View
+            android:id="@+id/divider_6"
+            android:layout_width="0dp"
+            android:layout_height="0.8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/colorPrimary"
+            app:layout_constraintEnd_toEndOf="@+id/view_3"
+            app:layout_constraintStart_toStartOf="@+id/view_3"
+            app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+
+        <TextView
+            android:id="@+id/tvJoined"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/joined_at"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/view_3"
+            app:layout_constraintTop_toBottomOf="@+id/divider_6" />
+
+        <TextView
+            android:id="@+id/userJoined"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/joined_at"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvJoined"
+            app:layout_constraintEnd_toEndOf="@+id/userEmail"
+            app:layout_constraintStart_toStartOf="@+id/userEmail"
+            app:layout_constraintTop_toTopOf="@+id/tvJoined" />
 
         <Button
             android:id="@+id/logoutButton"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
+            android:layout_margin="16dp"
             android:text="@string/logout"
             android:textColor="?attr/colorSecondaryVariant"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/taskButton" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

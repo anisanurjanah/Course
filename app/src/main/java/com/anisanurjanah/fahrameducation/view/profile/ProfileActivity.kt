@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import coil.load
 import com.anisanurjanah.fahrameducation.R
 import com.anisanurjanah.fahrameducation.databinding.ActivityProfileBinding
+import com.anisanurjanah.fahrameducation.view.article.ArticleActivity
 import com.anisanurjanah.fahrameducation.view.course.usercourse.UserCourseActivity
 import com.anisanurjanah.fahrameducation.view.login.LoginActivity
 import com.anisanurjanah.fahrameducation.view.task.TaskActivity
@@ -40,6 +41,10 @@ class ProfileActivity : AppCompatActivity() {
 
         binding.taskButton.setOnClickListener {
             startActivity(Intent(this@ProfileActivity, TaskActivity::class.java))
+        }
+
+        binding.articleButton.setOnClickListener {
+            startActivity(Intent(this@ProfileActivity, ArticleActivity::class.java))
         }
 
         binding.logoutButton.setOnClickListener {
@@ -86,11 +91,27 @@ class ProfileActivity : AppCompatActivity() {
                 try {
                     val responseObj = JSONObject(response)
 
-                    val name = responseObj.getString("name")
                     val photo = responseObj.getString("profile_photo_url")
+                    val name = responseObj.getString("name")
+                    val role = responseObj.getString("role")
+                    val nim = responseObj.getString("nim")
+                    val clas = responseObj.getString("kelas")
+                    val campus = responseObj.getString("kampus")
+                    val phone = responseObj.getString("phone")
+                    val email = responseObj.getString("email")
+                    val joinedAt = responseObj.getString("joined_at")
 
-                    binding.userName.text = name.toString()
-                    binding.ivUser.load(photo)
+                    binding.apply {
+                        ivUser.load(photo)
+                        userName.text = if (!name.isNullOrEmpty()) name else getString(R.string.none)
+                        userRole.text = if (!role.isNullOrEmpty()) role else getString(R.string.none)
+                        userNim.text = if (!nim.isNullOrEmpty()) nim else getString(R.string.none)
+                        userClass.text = if (!clas.isNullOrEmpty()) clas else getString(R.string.none)
+                        userCampus.text = if (!campus.isNullOrEmpty()) campus else getString(R.string.none)
+                        userPhone.text = if (!phone.isNullOrEmpty()) phone else getString(R.string.none)
+                        userEmail.text = if (!email.isNullOrEmpty()) email else getString(R.string.none)
+                        userJoined.text = if (!joinedAt.isNullOrEmpty()) joinedAt else getString(R.string.none)
+                    }
                 } catch (e: Exception) {
                     Toast.makeText(this@ProfileActivity, e.message, Toast.LENGTH_SHORT).show()
                     e.printStackTrace()
@@ -111,8 +132,7 @@ class ProfileActivity : AppCompatActivity() {
                     404 -> "$statusCode : Not Found"
                     else -> "$statusCode : ${error.message}"
                 }
-                binding.userName.text = errorMessage
-                binding.ivUser.load(R.drawable.ic_image)
+                Toast.makeText(this@ProfileActivity, errorMessage, Toast.LENGTH_SHORT).show()
             }
         })
     }

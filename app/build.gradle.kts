@@ -52,4 +52,5 @@ dependencies {
 
     implementation(libs.android.async.http)
     implementation(libs.coil)
+    implementation(libs.circleimageview)
 }
