@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundColor"
-    tools:context=".view.course.CourseDetailActivity">
+    tools:context=".view.course.UserCourseDetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -67,66 +67,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/published_at" />
 
-        <ImageView
-            android:id="@+id/teacher_image"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/course_title"
-            tools:srcCompat="@tools:sample/avatars"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/tv_teacher"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:text="@string/teacher"
-            android:textColor="?attr/colorOnSecondary"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/teacher_image"
-            app:layout_constraintTop_toTopOf="@+id/teacher_image" />
-
-        <TextView
-            android:id="@+id/teacherName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:text="@string/teacher"
-            android:textColor="?attr/colorOnPrimary"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/teacher_image"
-            app:layout_constraintTop_toBottomOf="@+id/tv_teacher" />
-
-        <TextView
-            android:id="@+id/tv_path"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/path"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="?attr/colorOnPrimary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/teacher_image" />
-
-        <TextView
-            android:id="@+id/course_path"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/course"
-            android:textSize="16sp"
-            android:textColor="?attr/colorOnSecondary"
-            app:layout_constraintStart_toEndOf="@+id/tv_path"
-            app:layout_constraintTop_toBottomOf="@+id/teacher_image" />
-
         <TextView
             android:id="@+id/tv_slug"
             android:layout_width="wrap_content"
@@ -138,19 +78,19 @@
             android:textStyle="bold"
             android:textColor="?attr/colorOnPrimary"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_path" />
+            app:layout_constraintTop_toBottomOf="@+id/course_title" />
 
         <TextView
             android:id="@+id/course_slug"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:text="@string/course"
-            android:textSize="16sp"
             android:textColor="?attr/colorOnSecondary"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_slug"
             app:layout_constraintStart_toEndOf="@+id/tv_slug"
-            app:layout_constraintTop_toBottomOf="@+id/course_path" />
+            app:layout_constraintTop_toTopOf="@+id/tv_slug" />
 
         <TextView
             android:id="@+id/course_excerpt"
@@ -170,7 +110,7 @@
             android:id="@+id/view_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="64dp"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/course_excerpt"
@@ -195,9 +135,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/course_excerpt"
-            app:layout_constraintHorizontal_bias="0.428"
-            app:layout_constraintStart_toStartOf="@+id/course_excerpt"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintEnd_toStartOf="@id/tv_level"
             app:layout_constraintTop_toBottomOf="@+id/course_excerpt"
             app:srcCompat="@drawable/ic_menu_book"
             app:tint="?attr/colorPrimary"
@@ -207,37 +146,12 @@
             android:id="@+id/tv_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
+            android:layout_marginEnd="64dp"
             android:text="@string/level"
-            android:textSize="16sp"
             android:textColor="?attr/colorPrimary"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/level_image"
-            app:layout_constraintStart_toEndOf="@+id/level_image"
-            app:layout_constraintTop_toTopOf="@+id/level_image" />
-
-        <ImageView
-            android:id="@+id/module_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="4dp"
-            app:layout_constraintEnd_toStartOf="@+id/tv_module"
-            app:layout_constraintTop_toBottomOf="@+id/course_excerpt"
-            app:srcCompat="@drawable/ic_library_books"
-            app:tint="?attr/colorPrimary"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/tv_module"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:text="@string/module"
-            android:textColor="?attr/colorPrimary"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/module_image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/module_image" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/course_view"
@@ -264,19 +178,6 @@
             app:layout_constraintEnd_toEndOf="@+id/tv_level"
             app:layout_constraintStart_toStartOf="@+id/level_image"
             app:layout_constraintTop_toBottomOf="@+id/level_image" />
-
-        <TextView
-            android:id="@+id/course_module"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/course"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="?attr/colorOnPrimary"
-            app:layout_constraintEnd_toEndOf="@+id/tv_module"
-            app:layout_constraintStart_toStartOf="@+id/module_image"
-            app:layout_constraintTop_toBottomOf="@+id/module_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

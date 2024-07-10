@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/colorSecondaryVariant"
+    android:layout_margin="4dp"
     android:padding="8dp">
 
     <ImageView
@@ -24,22 +25,25 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/course"
+        android:textColor="?attr/colorOnPrimary"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="?attr/colorOnPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivCourse"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/ivCourse" />
 
     <TextView
-        android:id="@+id/tvCoursePath"
+        android:id="@+id/tvCourseExcerpt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="2"
         android:text="@string/course"
         android:textColor="?attr/colorOnSecondary"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivCourse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivCourse"
         app:layout_constraintTop_toBottomOf="@+id/tvCourseTitle" />
