@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import coil.load
 import com.anisanurjanah.fahrameducation.R
 import com.anisanurjanah.fahrameducation.databinding.ActivityProfileBinding
-import com.anisanurjanah.fahrameducation.view.course.UserCourseActivity
+import com.anisanurjanah.fahrameducation.view.course.usercourse.UserCourseActivity
 import com.anisanurjanah.fahrameducation.view.login.LoginActivity
 import com.anisanurjanah.fahrameducation.view.task.TaskActivity
 import com.loopj.android.http.AsyncHttpClient

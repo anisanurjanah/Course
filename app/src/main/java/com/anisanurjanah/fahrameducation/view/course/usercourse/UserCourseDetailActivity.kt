@@ -1,4 +1,4 @@
-package com.anisanurjanah.fahrameducation.view.course
+package com.anisanurjanah.fahrameducation.view.course.usercourse
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -24,11 +24,11 @@ class UserCourseDetailActivity : AppCompatActivity() {
 
     private fun setupCourseDetail(course: Course) {
         binding.apply {
-            courseImage.load(course.featuredImage)
+            courseImage.load(course.image)
             courseTitle.text = course.title
             courseExcerpt.text = course.excerpt
             courseSlug.text = course.slug
-            courseLevel.text = course.infoLevel
+            courseLevel.text = course.level
             courseView.text = course.view.toString()
             publishedAt.text = course.publishedAt
         }

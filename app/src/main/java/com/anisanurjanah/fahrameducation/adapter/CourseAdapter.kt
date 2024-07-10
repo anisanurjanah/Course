@@ -28,7 +28,7 @@ class CourseAdapter(
     override fun onBindViewHolder(holder: CourseViewHolder, position: Int) {
         val course = data[position]
         holder.binding.root.setOnClickListener { onClick(course) }
-        holder.binding.ivCourse.load(course.featuredImage)
+        holder.binding.ivCourse.load(course.image)
         holder.binding.tvCourseTitle.text = course.title
         holder.binding.tvCourseExcerpt.text = course.excerpt
     }

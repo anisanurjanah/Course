@@ -1,4 +1,4 @@
-package com.anisanurjanah.fahrameducation.view.course
+package com.anisanurjanah.fahrameducation.view.course.usercourse
 
 import android.content.Intent
 import android.os.Bundle
@@ -27,7 +27,7 @@ class UserCourseActivity : AppCompatActivity() {
     }
 
     private fun getUserCourse() {
-        binding.progressBar.visibility = View.VISIBLE
+        binding.progressIndicator.visibility = View.VISIBLE
 
         val sharedPref = getSharedPreferences("UNIVAL", MODE_PRIVATE)
         val token = sharedPref.getString("TOKEN", "")
@@ -44,7 +44,7 @@ class UserCourseActivity : AppCompatActivity() {
                 headers: Array<out Header>?,
                 responseBody: ByteArray
             ) {
-                binding.progressBar.visibility = View.GONE
+                binding.progressIndicator.visibility = View.GONE
 
                 val response = String(responseBody)
                 try {
@@ -54,17 +54,16 @@ class UserCourseActivity : AppCompatActivity() {
                     for (i in 0 until dataArray.length()) {
                         val dataObj = dataArray.getJSONObject(i)
 
-                        val id = dataObj.getString("id")
                         val title = dataObj.getString("title")
                         val image = dataObj.getString("featured_image")
                         val excerpt = dataObj.getString("excerpt")
                         val slug = dataObj.getString("slug")
-                        val level = dataObj.getString("featured_image")
+                        val level = dataObj.getString("info_level")
                         val view = dataObj.getInt("view")
                         val publishedAt = dataObj.getString("published_at")
 
-                        val course = Course(id, title, level, image,
-                            excerpt, publishedAt, slug, view)
+                        val course = Course(title, image, "", excerpt, slug,
+                            "", "", level, view, 0, publishedAt)
                         data.add(course)
                     }
 
@@ -87,7 +86,7 @@ class UserCourseActivity : AppCompatActivity() {
                 responseBody: ByteArray?,
                 error: Throwable
             ) {
-                binding.progressBar.visibility = View.GONE
+                binding.progressIndicator.visibility = View.GONE
 
                 val errorMessage = when (statusCode) {
                     401 -> "$statusCode : Bad Request"

@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import coil.load
 import com.anisanurjanah.fahrameducation.R
 import com.anisanurjanah.fahrameducation.databinding.ActivitySplashScreenBinding
-import com.anisanurjanah.fahrameducation.view.login.LoginActivity
+import com.anisanurjanah.fahrameducation.view.onboarding.OnboardingActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
@@ -22,7 +22,7 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupImage()
-        moveToLogin()
+        moveToOnboarding()
     }
 
     private fun setupImage() {
@@ -30,11 +30,10 @@ class SplashScreenActivity : AppCompatActivity() {
         binding.imageLogo.load(image)
     }
 
-    private fun moveToLogin() {
+    private fun moveToOnboarding() {
         window.decorView.postDelayed({
-            startActivity(Intent(this@SplashScreenActivity, LoginActivity::class.java))
+            startActivity(Intent(this@SplashScreenActivity, OnboardingActivity::class.java))
             finish()
         }, delay)
     }
-
 }

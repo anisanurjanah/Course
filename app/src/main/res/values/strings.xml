@@ -13,4 +13,6 @@
     <string name="teacher">Teacher</string>
     <string name="my_task">My Task</string>
     <string name="logout">Logout</string>
+    <string name="fahram_courses">Fahram Courses</string>
+    <string name="login">Login</string>
 </resources>
