@@ -40,7 +40,7 @@
         android:layout_marginBottom="32dp"
         android:background="@color/transparent"
         android:padding="16dp"
-        android:src="@drawable/ic_menu_book"
+        android:src="@drawable/ic_school"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view"

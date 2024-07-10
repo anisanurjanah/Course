@@ -133,7 +133,7 @@ class TaskActivity : AppCompatActivity() {
 
         if (taskName.isEmpty()) {
             binding.progressIndicator.visibility = View.GONE
-            Toast.makeText(this, "Task name cannot be empty", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Task cannot be empty", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -161,7 +161,16 @@ class TaskActivity : AppCompatActivity() {
                     binding.progressIndicator.visibility = View.GONE
 
                     try {
-                        taskAdapter.notifyDataSetChanged()
+                        val response = JSONObject(String(responseBody))
+                        val task = Task(
+                            id = response.getInt("id"),
+                            name = response.getString("name"),
+                            createdAt = response.getString("created_at")
+                        )
+
+                        taskAdapter.addTask(task)
+
+                        binding.edInput.text.clear()
                         Toast.makeText(
                             this@TaskActivity,
                             "Successfully added!",
@@ -272,7 +281,7 @@ class TaskActivity : AppCompatActivity() {
 
                     try {
                         taskAdapter.removeTask(task)
-                        taskAdapter.notifyDataSetChanged()
+
                         Toast.makeText(
                             this@TaskActivity,
                             "Successfully deleted!",

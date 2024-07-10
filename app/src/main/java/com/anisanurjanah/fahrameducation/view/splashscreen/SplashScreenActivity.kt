@@ -41,6 +41,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 finish()
             } else {
                 startActivity(Intent(this@SplashScreenActivity, OnboardingActivity::class.java))
+                finish()
             }
         }, delay)
     }

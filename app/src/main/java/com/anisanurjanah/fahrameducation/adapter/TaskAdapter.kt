@@ -64,4 +64,9 @@ class TaskAdapter(
             notifyItemRemoved(position)
         }
     }
+
+    fun addTask(task: Task) {
+        data.add(task)
+        notifyItemInserted(data.size - 1)
+    }
 }
