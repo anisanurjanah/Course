@@ -28,6 +28,12 @@
             android:name=".view.login.LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".view.article.articleUser.ArticleUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.article.ArticleDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.course.CourseDetailActivity"
             android:exported="false" />
         <activity

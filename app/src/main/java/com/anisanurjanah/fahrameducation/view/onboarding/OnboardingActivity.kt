@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import coil.load
 import com.anisanurjanah.fahrameducation.R
 import com.anisanurjanah.fahrameducation.databinding.ActivityOnboardingBinding
+import com.anisanurjanah.fahrameducation.view.article.ArticleActivity
 import com.anisanurjanah.fahrameducation.view.course.CourseActivity
 import com.anisanurjanah.fahrameducation.view.login.LoginActivity
 
@@ -29,6 +30,10 @@ class OnboardingActivity : AppCompatActivity() {
 
         binding.coursesButton.setOnClickListener {
             startActivity(Intent(this@OnboardingActivity, CourseActivity::class.java))
+        }
+
+        binding.articlesButton.setOnClickListener {
+            startActivity(Intent(this@OnboardingActivity, ArticleActivity::class.java))
         }
     }
 

@@ -32,4 +32,7 @@
     <string name="name">Name</string>
     <string name="role">Role</string>
     <string name="none">None</string>
+    <string name="sign_out_confirmation_message">Are you sure you want to sign out?</string>
+    <string name="author">Author</string>
+    <string name="category">Category</string>
 </resources>

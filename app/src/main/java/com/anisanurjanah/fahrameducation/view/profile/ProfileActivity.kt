@@ -5,11 +5,12 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
 import com.anisanurjanah.fahrameducation.R
 import com.anisanurjanah.fahrameducation.databinding.ActivityProfileBinding
-import com.anisanurjanah.fahrameducation.view.article.ArticleActivity
+import com.anisanurjanah.fahrameducation.view.article.articleUser.ArticleUserActivity
 import com.anisanurjanah.fahrameducation.view.course.usercourse.UserCourseActivity
 import com.anisanurjanah.fahrameducation.view.login.LoginActivity
 import com.anisanurjanah.fahrameducation.view.task.TaskActivity
@@ -44,15 +45,11 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         binding.articleButton.setOnClickListener {
-            startActivity(Intent(this@ProfileActivity, ArticleActivity::class.java))
+            startActivity(Intent(this@ProfileActivity, ArticleUserActivity::class.java))
         }
 
         binding.logoutButton.setOnClickListener {
-            val editor = sharedPref.edit()
-            editor.putString("TOKEN", "")
-            editor.apply()
-            startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
-            finish()
+            setupLogout()
         }
     }
 
@@ -60,10 +57,6 @@ class ProfileActivity : AppCompatActivity() {
         with(binding) {
             setSupportActionBar(topAppBar)
             topAppBar.title = getString(R.string.my_profile)
-            topAppBar.setNavigationIcon(R.drawable.ic_arrow_back)
-            topAppBar.setNavigationOnClickListener {
-                onBackPressedDispatcher.onBackPressed()
-            }
         }
     }
 
@@ -135,5 +128,28 @@ class ProfileActivity : AppCompatActivity() {
                 Toast.makeText(this@ProfileActivity, errorMessage, Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private fun setupLogout() {
+        AlertDialog.Builder(this).apply {
+            val message = getString(R.string.sign_out_confirmation_message)
+
+            setTitle(getString(R.string.logout))
+            setMessage(message)
+
+            setPositiveButton(getString(R.string.logout)) { _, _ ->
+                val editor = sharedPref.edit()
+                editor.putString("TOKEN", "")
+                editor.apply()
+                startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
+                finish()
+            }
+
+            setNegativeButton(android.R.string.cancel) { dialog, _ ->
+                dialog.dismiss()
+            }
+
+            create().show()
+        }
     }
 }

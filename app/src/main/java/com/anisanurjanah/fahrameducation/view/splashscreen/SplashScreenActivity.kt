@@ -8,6 +8,7 @@ import coil.load
 import com.anisanurjanah.fahrameducation.R
 import com.anisanurjanah.fahrameducation.databinding.ActivitySplashScreenBinding
 import com.anisanurjanah.fahrameducation.view.onboarding.OnboardingActivity
+import com.anisanurjanah.fahrameducation.view.profile.ProfileActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
@@ -22,7 +23,7 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupImage()
-        moveToOnboarding()
+        moveToMain()
     }
 
     private fun setupImage() {
@@ -30,10 +31,17 @@ class SplashScreenActivity : AppCompatActivity() {
         binding.imageLogo.load(image)
     }
 
-    private fun moveToOnboarding() {
+    private fun moveToMain() {
         window.decorView.postDelayed({
-            startActivity(Intent(this@SplashScreenActivity, OnboardingActivity::class.java))
-            finish()
+            val sharedPref = getSharedPreferences("UNIVAL", MODE_PRIVATE)
+            val token = sharedPref.getString("TOKEN", "")
+
+            if (token != "") {
+                startActivity(Intent(this@SplashScreenActivity, ProfileActivity::class.java))
+                finish()
+            } else {
+                startActivity(Intent(this@SplashScreenActivity, OnboardingActivity::class.java))
+            }
         }, delay)
     }
 }
