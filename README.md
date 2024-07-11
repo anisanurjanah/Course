@@ -4,6 +4,19 @@
 Proyek ini merupakan bagian dari Ujian Akhir Semester (UAS) untuk mata kuliah Pemrograman Android 2 yang dibimbing oleh Muhammad Khaidir Fahram, M.Kom (https://fahram.dev/).
 Aplikasi ini berfungsi untuk menampilkan daftar kursus dan artikel serta mengelola daftar tugas (task) yang mencakup fitur-fitur seperti menambahkan, mengupdate, dan menghapus task. Aplikasi ini menggunakan RecyclerView untuk menampilkan daftar task dan berinteraksi dengan backend API untuk penyimpanan data.
 
+## BASE URL
+https://fahram.dev/api
+
+## API Endpoints
+<b>POST</b> /login: Masuk ke dalam aplikasi<br>
+<b>GET</b> /user: Mengambil semua informasi pengguna<br>
+<b>GET</b> /course: Mengambil semua daftar kursus<br>
+<b>GET</b> /posts: Mengambil semua daftar artikel<br>
+<b>GET</b> /tasks: Mengambil semua daftar task<br>
+<b>POST</b> /task/store: Menambahkan task baru<br>
+<b>POST</b> /task/update: Mengupdate task sebagai selesai atau belum selesai<br>
+<b>DELETE</b> /task/delete: Menghapus task dengan ID sebagai body
+
 ## Fitur Aplikasi
 <ul>
   <li><b>Menambahkan Task:</b> Pengguna dapat menambahkan task baru ke dalam daftar.</li>
@@ -30,16 +43,3 @@ Aplikasi ini berfungsi untuk menampilkan daftar kursus dan artikel serta mengelo
    Pastikan project tersinkronisasi dengan Gradle dengan benar. Android Studio biasanya akan otomatis mendeteksi dan meminta Anda untuk melakukan sinkronisasi.
 4. <b>Menjalankan Aplikasi</b><br>
    Hubungkan perangkat Android atau gunakan emulator, lalu klik tombol "Run" di Android Studio.
-
-## BASE URL
-https://fahram.dev/api
-
-## API Endpoints
-<b>POST</b> /login: Masuk ke dalam aplikasi<br>
-<b>GET</b> /user: Mengambil semua informasi pengguna<br>
-<b>GET</b> /course: Mengambil semua daftar kursus<br>
-<b>GET</b> /posts: Mengambil semua daftar artikel<br>
-<b>GET</b> /tasks: Mengambil semua daftar task<br>
-<b>POST</b> /task/store: Menambahkan task baru<br>
-<b>POST</b> /task/update: Mengupdate task sebagai selesai atau belum selesai<br>
-<b>DELETE</b> /task/delete: Menghapus task dengan ID sebagai body
