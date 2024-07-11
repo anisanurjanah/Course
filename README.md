@@ -27,11 +27,11 @@ https://fahram.dev/api
 
 ## Teknologi yang Digunakan
 <ul>
-    <li><b>Kotlin:</b>Bahasa pemrograman utama untuk pengembangan aplikasi Android.</li>
-    <li><b>Android SDK:</b>Framework untuk pengembangan aplikasi Android.</li>
-    <li><b>RecyclerView:</b>Widget untuk menampilkan daftar data secara efisien.</li>
-    <li><b>LoopJ:</b>Library untuk mengelola komunikasi HTTP dengan backend API.</li>
-    <li><b>Coil:</b>Library untuk memuat gambar dari URL.</li>
+    <li><b>Kotlin:</b> Bahasa pemrograman utama untuk pengembangan aplikasi Android.</li>
+    <li><b>Android SDK:</b> Framework untuk pengembangan aplikasi Android.</li>
+    <li><b>RecyclerView:</b> Widget untuk menampilkan daftar data secara efisien.</li>
+    <li><b>LoopJ:</b> Library untuk mengelola komunikasi HTTP dengan backend API.</li>
+    <li><b>Coil:</b> Library untuk memuat gambar dari URL.</li>
 </ul>
 
 ## Instalasi dan Penggunaan
