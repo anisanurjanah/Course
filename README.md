@@ -38,15 +38,15 @@ https://fahram.dev/api
 
 ## Dokumentasi
 <p align="center">
-  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/c3dc64d4-0340-451e-af92-b157af05b4d3" width=360 height=400 alt="Splash screen">
-  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/f29ca18a-0eb4-4948-aa61-4d73cccd902c" width=360 height=400 alt="Onboarding">
-  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/b1d5cdb8-e5ac-452e-b9d2-ef83b96b092d" width=360 height=400 alt="Login">
-  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/0118322f-1576-40d2-a862-83b38e6568be" width=360 height=400 alt="User Profile">
-  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/f93e8c7c-77d2-422f-b6b9-5725fff377e5" width=360 height=400 alt="Course List">
-  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/818f4eaa-20d9-43dc-896d-1fdb5c725ce0" width=360 height=400 alt="Course Detail">
-  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/07271588-a403-444c-8249-b9f32b91f26f" width=360 height=400 alt="Task List">
-  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/0c663cf4-f070-4e51-a31f-b529cf0dffe6" width=360 height=400 alt="Article List">
-  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/7e4c1402-7e83-43b9-97c7-4a88f1b08e07" width=360 height=400 alt="Article Detail">
+  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/c3dc64d4-0340-451e-af92-b157af05b4d3" width=240 height=270 alt="Splash screen">
+  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/f29ca18a-0eb4-4948-aa61-4d73cccd902c" width=240 height=270 alt="Onboarding">
+  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/b1d5cdb8-e5ac-452e-b9d2-ef83b96b092d" width=240 height=270 alt="Login">
+  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/0118322f-1576-40d2-a862-83b38e6568be" width=240 height=270 alt="User Profile">
+  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/f93e8c7c-77d2-422f-b6b9-5725fff377e5" width=240 height=270 alt="Course List">
+  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/818f4eaa-20d9-43dc-896d-1fdb5c725ce0" width=240 height=270 alt="Course Detail">
+  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/07271588-a403-444c-8249-b9f32b91f26f" width=240 height=270 alt="Task List">
+  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/0c663cf4-f070-4e51-a31f-b529cf0dffe6" width=240 height=270 alt="Article List">
+  <img src="https://github.com/anisanurjanah/Mobile-Course-LoopJ/assets/74089025/7e4c1402-7e83-43b9-97c7-4a88f1b08e07" width=240 height=270 alt="Article Detail">
 </p>
 
 ## Instalasi dan Penggunaan
