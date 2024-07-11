@@ -2,8 +2,8 @@
 
 ## Deskripsi Proyek
 <p align="justify">
-  Proyek ini merupakan bagian dari Ujian Akhir Semester (UAS) untuk mata kuliah Pemrograman Android 2 yang dibimbing oleh Muhammad Khaidir Fahram, M.Kom (https://fahram.dev/).
-  Aplikasi ini berfungsi untuk menampilkan daftar kursus dan artikel serta mengelola daftar tugas (task) yang mencakup fitur-fitur seperti menambahkan, mengupdate, dan menghapus task.      Aplikasi ini menggunakan RecyclerView untuk menampilkan daftar task dan berinteraksi dengan backend API untuk penyimpanan data.
+  Proyek ini merupakan bagian dari Ujian Akhir Semester (UAS) untuk mata kuliah Pemrograman Android 2 yang dibimbing oleh <a href="https://www.linkedin.com/in/fahram/">Muhammad Khaidir     Fahram, M.Kom</a> (https://fahram.dev/). Aplikasi ini berfungsi untuk menampilkan daftar kursus dan artikel serta mengelola daftar tugas (task) yang mencakup fitur-fitur seperti     
+  menambahkan, mengupdate, dan menghapus task. Aplikasi ini menggunakan RecyclerView untuk menampilkan daftar task dan berinteraksi dengan backend API untuk penyimpanan data.
 </p>
 
 ## BASE URL
