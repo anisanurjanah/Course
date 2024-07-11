@@ -23,7 +23,7 @@ Aplikasi ini berfungsi untuk menampilkan daftar kursus dan artikel serta mengelo
 
 ## Instalasi dan Penggunaan
 1. <b>Clone Repository</b><br>
-   git clone https://github.com/mobile-course-loopj.git
+   git clone https://github.com/anisanurjanah/Mobile-Course-LoopJ.git
 2. <b>Buka di Android Studio</b><br>
    Buka Android Studio, pilih "Open an existing Android Studio project" dan arahkan ke folder proyek yang sudah di-clone.
 3. <b>Sync Project dengan Gradle Files</b><br>
